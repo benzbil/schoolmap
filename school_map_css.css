@@ -1,0 +1,341 @@
+/* 
+=====================================
+School Map Website - CSS Styles
+For Grade 7 Students Learning Web Development
+=====================================
+*/
+
+/* Basic styling for the entire website */
+* {
+    box-sizing: border-box; /* Makes sizing easier to manage */
+}
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun, kid-friendly font */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Pretty gradient background */
+    margin: 0; /* Remove default spacing */
+    padding: 0;
+    min-height: 100vh; /* Make sure page takes full screen height */
+    color: #333; /* Dark text color for readability */
+}
+
+/* Header section styling */
+header {
+    background: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    position: sticky; /* Header stays at top when scrolling */
+    top: 0;
+    z-index: 1000; /* Makes sure header stays on top */
+}
+
+/* Main title styling */
+h1 {
+    color: #333;
+    margin: 0;
+    font-size: 2.5em; /* Large, friendly title */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+}
+
+h2 {
+    color: #444;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+/* Navigation menu styling */
+nav {
+    margin-top: 15px;
+}
+
+.nav-link {
+    display: inline-block; /* Makes links sit side by side */
+    margin: 0 15px; /* Space between navigation links */
+    padding: 10px 20px;
+    background: #4CAF50; /* Nice green color */
+    color: white;
+    text-decoration: none; /* Remove underline */
+    border-radius: 25px; /* Rounded corners */
+    font-weight: bold;
+    transition: transform 0.3s ease; /* Smooth animation effect */
+}
+
+/* What happens when you hover over navigation links */
+.nav-link:hover {
+    transform: scale(1.1); /* Makes button slightly bigger */
+    background: #45a049; /* Slightly darker green */
+}
+
+/* Active/current page link styling */
+.nav-link.active {
+    background: #ff6b6b; /* Red color for current page */
+}
+
+/* Main content area */
+main {
+    max-width: 1200px; /* Don't let content get too wide */
+    margin: 0 auto; /* Center the content */
+    padding: 20px;
+}
+
+/* Search section styling */
+.search-container {
+    background: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+    border-radius: 15px; /* Rounded corners */
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    text-align: center;
+}
+
+/* Search input box styling */
+#searchInput {
+    width: 300px;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 25px; /* Rounded input field */
+    font-size: 16px;
+    margin-right: 10px;
+    font-family: inherit; /* Use same font as page */
+}
+
+/* What happens when you click in the search box */
+#searchInput:focus {
+    border-color: #4CAF50; /* Green border when active */
+    outline: none; /* Remove default browser outline */
+}
+
+/* Button styling */
+button {
+    background: #4CAF50; /* Green background */
+    color: white;
+    padding: 12px 24px;
+    border: none; /* Remove default border */
+    border-radius: 25px; /* Rounded buttons */
+    font-size: 16px;
+    cursor: pointer; /* Shows hand cursor on hover */
+    margin: 5px;
+    font-family: inherit;
+    transition: all 0.3s ease; /* Smooth animation */
+}
+
+/* Button hover effect */
+button:hover {
+    background: #45a049; /* Darker green when hovering */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Map container styling */
+.map-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Map toggle buttons */
+.map-toggle {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.map-toggle button {
+    background: #6c757d; /* Gray background for inactive */
+    margin: 0 5px;
+}
+
+.map-toggle button.active {
+    background: #4CAF50; /* Green for active map type */
+}
+
+/* Map view containers */
+.map-view {
+    border-radius: 10px;
+    overflow: hidden; /* Keeps rounded corners */
+}
+
+/* Custom map styling */
+.custom-map {
+    position: relative; /* Allows positioning of markers */
+    text-align: center;
+}
+
+#schoolMapImage {
+    max-width: 100%; /* Makes image responsive */
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Clickable areas on custom map */
+.clickable {
+    cursor: pointer; /* Shows hand cursor */
+    transition: opacity 0.2s ease;
+}
+
+.clickable:hover {
+    opacity: 0.8; /* Slight fade on hover */
+}
+
+/* Map markers for custom map */
+.map-marker {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff6b6b;
+    border: 2px solid white;
+    border-radius: 50%; /* Makes it circular */
+    cursor: pointer;
+    transform: translate(-50%, -50%); /* Centers the marker */
+    transition: transform 0.2s ease;
+}
+
+.map-marker:hover {
+    transform: translate(-50%, -50%) scale(1.2); /* Bigger on hover */
+}
+
+/* Highlighted marker (when searched) */
+.map-marker.highlighted {
+    background: #ffeb3b; /* Yellow color */
+    animation: pulse 1s infinite; /* Pulsing animation */
+}
+
+/* Pulsing animation for highlighted markers */
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.3); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Location information display */
+.location-info {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-left: 5px solid #4CAF50; /* Green accent border */
+}
+
+.location-info h3 {
+    color: #4CAF50;
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+/* Loading message styling */
+.loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2em;
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    margin: 20px 0;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    margin-top: 50px;
+    border-radius: 15px 15px 0 0;
+}
+
+footer a {
+    color: #ffeb3b; /* Yellow links in footer */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Error and success message styling */
+.error {
+    color: #ff6b6b; /* Red for errors */
+    font-weight: bold;
+    padding: 10px;
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.success {
+    color: #4CAF50; /* Green for success */
+    font-weight: bold;
+    padding: 10px;
+    background: rgba(76, 175, 80, 0.1);
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+/* Responsive design - makes website work on phones and tablets */
+@media screen and (max-width: 768px) {
+    /* Smaller screens get adjusted styling */
+    
+    h1 {
+        font-size: 2em; /* Smaller title on mobile */
+    }
+    
+    .nav-link {
+        display: block; /* Stack navigation vertically on mobile */
+        margin: 5px 0;
+    }
+    
+    #searchInput {
+        width: 100%; /* Full width on mobile */
+        margin-bottom: 10px;
+    }
+    
+    main {
+        padding: 10px; /* Less padding on mobile */
+    }
+    
+    .search-container,
+    .map-container,
+    .location-info {
+        padding: 15px; /* Less padding in containers */
+    }
+}
+
+/* Print styles - makes website print nicely */
+@media print {
+    body {
+        background: white; /* Remove gradient for printing */
+    }
+    
+    header {
+        background: white;
+        box-shadow: none;
+    }
+    
+    .search-container,
+    .map-container {
+        background: white;
+        box-shadow: none;
+    }
+}
+
+/* Focus styles for accessibility - helps people using keyboards */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #4CAF50;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .nav-link {
+        border: 2px solid currentColor;
+    }
+    
+    button {
+        border: 2px solid currentColor;
+    }
+}
