@@ -9804,7 +9804,7 @@
 		
 		// ===== ฟังก์ชันตรวจสอบและบีบอัดรูปภาพ =====
 		//function checkImageSize(base64Data, maxSizeKB = 45) {
-		function checkImageSize(base64Data, maxSizeKB = 390) {
+		function checkImageSize(base64Data, maxSizeKB = 100) {
 			if (!base64Data) return { valid: true, size: 0, sizeKB: 0 };
 			
 			const sizeBytes = base64Data.length;
@@ -9820,7 +9820,7 @@
 		}
 
 		//function compressImage(canvas, quality = 0.7, maxSizeKB = 45) {
-		function compressImage(canvas, quality = 0.8, maxSizeKB = 390) {
+		function compressImage(canvas, quality = 0.7, maxSizeKB = 100) {
 			return new Promise((resolve) => {
 				const tryCompress = (currentQuality) => {
 					const base64 = canvas.toDataURL('image/jpeg', currentQuality);
@@ -9846,7 +9846,7 @@
 		}
 
 		//async function processImageFile(file, maxSizeKB = 45, maxWidth = 1200, maxHeight = 800) {
-		async function processImageFile(file, maxSizeKB = 390, maxWidth = 1200, maxHeight = 800) {
+		async function processImageFile(file, maxSizeKB = 100, maxWidth = 1200, maxHeight = 800) {
 			return new Promise((resolve, reject) => {
 				const reader = new FileReader();
 				
@@ -9872,7 +9872,7 @@
 								
 								// บีบอัดรูปภาพ
 								//const result = await compressImage(canvas, 0.8, maxSizeKB);
-								const result = await compressImage(canvas, 1.0, maxSizeKB);
+								const result = await compressImage(canvas, 0.7, maxSizeKB);
 								
 								console.log(`✅ Image processed: ${width}x${height}, quality=${result.quality}, size=${result.finalSize}KB`);
 								
